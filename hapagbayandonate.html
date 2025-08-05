@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hapag Bayan! - Make a Difference Today</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'navy': '#1e3a8a',
+                        'navy-dark': '#1e40af',
+                        'navy-light': '#3b82f6',
+                        'maroon': '#7f1d1d',
+                        'maroon-light': '#991b1b',
+                        'yellow': '#fbbf24',
+                        'yellow-light': '#fcd34d'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .logo-watermark {
+            position: relative;
+        }
+        .logo-watermark::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://i.imgur.com/gAuMRvb.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 500px;
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .logo-watermark > * {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Header -->
+    <header class="bg-navy shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-6">
+                <div class="flex items-center">
+                    <!-- Replace this section with your logo -->
+                    <div class="mr-4">
+                        <!-- Your Hapag Bayan Logo -->
+                        <img src="https://i.imgur.com/gAuMRvb.png" alt="Hapag Bayan! Logo" class="h-20 w-auto rounded-full" style="background: transparent;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        
+                        <!-- Fallback SVG Logo -->
+                        <div class="bg-white rounded-lg p-2 shadow-sm" style="display: none;">
+                            <svg class="w-10 h-8" viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Plate/Bowl shape -->
+                                <ellipse cx="60" cy="45" rx="45" ry="15" fill="#fbbf24" stroke="#1e3a8a" stroke-width="2"/>
+                                <!-- Food items on plate -->
+                                <circle cx="45" cy="40" r="6" fill="#dc2626"/>
+                                <circle cx="60" cy="38" r="7" fill="#16a34a"/>
+                                <circle cx="75" cy="42" r="5" fill="#ea580c"/>
+                                <!-- Steam lines -->
+                                <path d="M40 25 Q42 20 40 15" stroke="#9ca3af" stroke-width="2" fill="none"/>
+                                <path d="M60 23 Q62 18 60 13" stroke="#9ca3af" stroke-width="2" fill="none"/>
+                                <path d="M80 27 Q82 22 80 17" stroke="#9ca3af" stroke-width="2" fill="none"/>
+                                <!-- Text -->
+                                <text x="60" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e3a8a">HAPAG</text>
+                            </svg>
+                        </div>
+                    </div>
+                    <h1 class="text-2xl font-bold text-white">Hapag Bayan!</h1>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-white hover:text-yellow transition-colors">Home</a>
+                    <a href="#donate" class="text-white hover:text-yellow transition-colors">Donate</a>
+                    <a href="#about" class="text-white hover:text-yellow transition-colors">About</a>
+                    <a href="#contact" class="text-white hover:text-yellow transition-colors">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-5xl font-bold text-white mb-6">Make a Difference Today</h2>
+            <p class="text-xl text-white mb-8 max-w-3xl mx-auto">Join thousands of compassionate donors in creating positive change around the world. Every donation, no matter the size, helps transform lives.</p>
+            <button onclick="scrollToDonate()" class="bg-yellow hover:bg-yellow-light text-navy font-bold py-4 px-8 rounded-full text-lg transition-colors shadow-lg">
+                Donate Now
+            </button>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="text-4xl font-bold text-navy mb-8">About Hapag Bayan!</h3>
+            <div class="bg-gray-50 rounded-lg p-8 shadow-md">
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    Ang Hapag Bayan! ay naglalayong hikayatin ang pagbibigay at pagtulong sa kapwa. Sa pamamagitan ng mga programa tulad ng food drive, suporta sa edukasyon, at tulong sa oras ng sakuna, pinapadali nito ang pagtulong para sa mga ordinaryong tao. Naniniwala ang kami na ang simpleng pagbibigay ay may kakayahang magdulot ng malaking pagbabago sa buhay ng iba.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Stats -->
+    <section class="py-16 bg-gray-50 logo-watermark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-3xl font-bold text-navy mb-2">500+</div>
+                    <div class="text-gray-600">Lives Changed</div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-3xl font-bold text-maroon mb-2">₱50,000+</div>
+                    <div class="text-gray-600">Funds Raised</div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-3xl font-bold text-maroon mb-2">3000+</div>
+                    <div class="text-gray-600">Active Donors</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Donation Form Section -->
+    <section id="donate" class="py-20 bg-gray-50 logo-watermark">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h3 class="text-4xl font-bold text-navy mb-4">Make Your Donation</h3>
+                <p class="text-xl text-gray-600">Bilang bawat piso para sa kinabukasan ng mga Pilipino!</p>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-xl p-8 logo-watermark">
+                <form id="donationForm" onsubmit="processDonation(event)">
+                    <!-- Cause Selection -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-navy mb-2">Select a Cause</label>
+                        <select id="causeSelect" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent">
+                            <option value="general">General Relief Goods</option>
+                            <option value="food-packs">Food Packs & Groceries</option>
+                            <option value="emergency-kits">Emergency Relief Kits</option>
+                            <option value="medical-supplies">Medical Supplies & First Aid</option>
+                            <option value="clothing-blankets">Clothing & Blankets</option>
+                            <option value="hygiene-kits">Hygiene & Sanitation Kits</option>
+                            <option value="school-supplies">School Supplies for Children</option>
+                            <option value="baby-supplies">Baby Care Packages</option>
+                            <option value="elderly-care-packs">Elderly Care Packages</option>
+                            <option value="disaster-response">Disaster Response Relief</option>
+                        </select>
+                    </div>
+
+                    <!-- Donation Amount -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-navy mb-2">Donation Amount</label>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
+                            <button type="button" onclick="setAmount(25)" class="amount-btn bg-gray-100 hover:bg-yellow hover:text-navy border border-gray-300 rounded-lg py-3 px-4 font-medium transition-colors">₱25</button>
+                            <button type="button" onclick="setAmount(50)" class="amount-btn bg-gray-100 hover:bg-yellow hover:text-navy border border-gray-300 rounded-lg py-3 px-4 font-medium transition-colors">₱50</button>
+                            <button type="button" onclick="setAmount(100)" class="amount-btn bg-gray-100 hover:bg-yellow hover:text-navy border border-gray-300 rounded-lg py-3 px-4 font-medium transition-colors">₱100</button>
+                            <button type="button" onclick="setAmount(250)" class="amount-btn bg-gray-100 hover:bg-yellow hover:text-navy border border-gray-300 rounded-lg py-3 px-4 font-medium transition-colors">₱250</button>
+                        </div>
+                        <div class="relative">
+                            <span class="absolute left-3 top-3 text-gray-500">₱</span>
+                            <input type="number" id="customAmount" placeholder="Enter custom amount" class="w-full pl-8 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent" min="1">
+                        </div>
+                    </div>
+
+                    <!-- Donor Information -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label class="block text-sm font-medium text-navy mb-2">First Name</label>
+                            <input type="text" id="firstName" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-navy mb-2">Last Name</label>
+                            <input type="text" id="lastName" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent">
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-navy mb-2">Email Address</label>
+                        <input type="email" id="email" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent">
+                    </div>
+
+                    <!-- Donation Type -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-navy mb-2">Donation Type</label>
+                        <div class="flex space-x-4">
+                            <label class="flex items-center">
+                                <input type="radio" name="donationType" value="one-time" checked class="mr-2 text-navy focus:ring-navy">
+                                <span>One-time</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="donationType" value="monthly" class="mr-2 text-navy focus:ring-navy">
+                                <span>Monthly</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Payment Method Selection -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-navy mb-3">Select Payment Method</label>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                            <!-- GCash -->
+                            <label class="payment-method cursor-pointer border-2 border-gray-200 rounded-lg p-3 hover:border-navy transition-colors">
+                                <input type="radio" name="paymentMethod" value="gcash" class="sr-only">
+                                <div class="flex flex-col items-center">
+                                    <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-2 border">
+                                        <svg class="w-10 h-8" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="100" height="40" fill="#007DFF" rx="4"/>
+                                            <text x="50" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">GCash</text>
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm font-medium">GCash</span>
+                                </div>
+                            </label>
+
+                            <!-- PayMaya -->
+                            <label class="payment-method cursor-pointer border-2 border-gray-200 rounded-lg p-3 hover:border-navy transition-colors">
+                                <input type="radio" name="paymentMethod" value="paymaya" class="sr-only">
+                                <div class="flex flex-col items-center">
+                                    <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-2 border">
+                                        <svg class="w-10 h-8" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="100" height="40" fill="#00D632" rx="4"/>
+                                            <text x="50" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">PayMaya</text>
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm font-medium">PayMaya</span>
+                                </div>
+                            </label>
+
+                            <!-- BPI -->
+                            <label class="payment-method cursor-pointer border-2 border-gray-200 rounded-lg p-3 hover:border-navy transition-colors">
+                                <input type="radio" name="paymentMethod" value="bpi" class="sr-only">
+                                <div class="flex flex-col items-center">
+                                    <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-2 border">
+                                        <svg class="w-10 h-8" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="100" height="40" fill="#E31E24" rx="4"/>
+                                            <text x="50" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">BPI</text>
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm font-medium">BPI Online</span>
+                                </div>
+                            </label>
+
+                            <!-- BDO -->
+                            <label class="payment-method cursor-pointer border-2 border-gray-200 rounded-lg p-3 hover:border-navy transition-colors">
+                                <input type="radio" name="paymentMethod" value="bdo" class="sr-only">
+                                <div class="flex flex-col items-center">
+                                    <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-2 border">
+                                        <svg class="w-10 h-8" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="100" height="40" fill="#003087" rx="4"/>
+                                            <text x="50" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">BDO</text>
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm font-medium">BDO Online</span>
+                                </div>
+                            </label>
+
+                            <!-- Landbank -->
+                            <label class="payment-method cursor-pointer border-2 border-gray-200 rounded-lg p-3 hover:border-navy transition-colors">
+                                <input type="radio" name="paymentMethod" value="landbank" class="sr-only">
+                                <div class="flex flex-col items-center">
+                                    <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-2 border">
+                                        <svg class="w-10 h-8" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="100" height="40" fill="#228B22" rx="4"/>
+                                            <text x="50" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="white">LAND</text>
+                                            <text x="50" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="white">BANK</text>
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm font-medium">Landbank</span>
+                                </div>
+                            </label>
+
+                            <!-- PayPal -->
+                            <label class="payment-method cursor-pointer border-2 border-gray-200 rounded-lg p-3 hover:border-navy transition-colors">
+                                <input type="radio" name="paymentMethod" value="paypal" class="sr-only">
+                                <div class="flex flex-col items-center">
+                                    <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-2 border">
+                                        <svg class="w-10 h-8" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="100" height="40" fill="#0070BA" rx="4"/>
+                                            <text x="25" y="18" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#009CDE">Pay</text>
+                                            <text x="25" y="30" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#012169">Pal</text>
+                                            <text x="60" y="25" font-family="Arial, sans-serif" font-size="8" fill="white">®</text>
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm font-medium">PayPal</span>
+                                </div>
+                            </label>
+
+                            <!-- Credit/Debit Card -->
+                            <label class="payment-method cursor-pointer border-2 border-gray-200 rounded-lg p-3 hover:border-navy transition-colors">
+                                <input type="radio" name="paymentMethod" value="card" class="sr-only">
+                                <div class="flex flex-col items-center">
+                                    <div class="w-12 h-12 bg-gray-600 rounded-lg flex items-center justify-center mb-2">
+                                        <span class="text-white font-bold text-xs">💳</span>
+                                    </div>
+                                    <span class="text-sm font-medium">Card</span>
+                                </div>
+                            </label>
+
+                            <!-- Bank Transfer -->
+                            <label class="payment-method cursor-pointer border-2 border-gray-200 rounded-lg p-3 hover:border-navy transition-colors">
+                                <input type="radio" name="paymentMethod" value="bank-transfer" class="sr-only">
+                                <div class="flex flex-col items-center">
+                                    <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-2">
+                                        <span class="text-white font-bold text-xs">🏦</span>
+                                    </div>
+                                    <span class="text-sm font-medium">Bank Transfer</span>
+                                </div>
+                            </label>
+
+                            <!-- 7-Eleven -->
+                            <label class="payment-method cursor-pointer border-2 border-gray-200 rounded-lg p-3 hover:border-navy transition-colors">
+                                <input type="radio" name="paymentMethod" value="7eleven" class="sr-only">
+                                <div class="flex flex-col items-center">
+                                    <div class="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center mb-2">
+                                        <span class="text-white font-bold text-xs">7-11</span>
+                                    </div>
+                                    <span class="text-sm font-medium">7-Eleven</span>
+                                </div>
+                            </label>
+                        </div>
+
+                        <!-- Payment Details Forms -->
+                        <div id="paymentDetails" class="mt-6 hidden">
+                            <!-- GCash Details -->
+                            <div id="gcashDetails" class="payment-details hidden">
+                                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                                    <h4 class="font-medium text-navy mb-3">GCash Payment Details</h4>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-navy mb-2">GCash Mobile Number</label>
+                                            <input type="tel" id="gcashNumber" placeholder="09XX-XXX-XXXX" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-navy mb-2">Account Name</label>
+                                            <input type="text" id="gcashName" placeholder="Full name as registered" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- PayMaya Details -->
+                            <div id="paymayaDetails" class="payment-details hidden">
+                                <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                                    <h4 class="font-medium text-navy mb-3">PayMaya Payment Details</h4>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-navy mb-2">PayMaya Mobile Number</label>
+                                            <input type="tel" id="paymayaNumber" placeholder="09XX-XXX-XXXX" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-navy mb-2">Account Name</label>
+                                            <input type="text" id="paymayaName" placeholder="Full name as registered" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- BPI Details -->
+                            <div id="bpiDetails" class="payment-details hidden">
+                                <div class="bg-red-50 border border-red-200 rounded-lg p-4">
+                                    <h4 class="font-medium text-navy mb-3">BPI Online Banking Details</h4>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-navy mb-2">Account Number</label>
+                                            <input type="text" id="bpiAccount" placeholder="XXXX-XXXX-XX" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-navy mb-2">Account Holder Name</label>
+                                            <input type="text" id="bpiName" placeholder="Full name as registered" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- BDO Details -->
+                            <div id="bdoDetails" class="payment-details hidden">
+                                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                                    <h4 class="font-medium text-navy mb-3">BDO Online Banking Details</h4>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-navy mb-2">Account Number</label>
+                                            <input type="text" id="bdoAccount" placeholder="XXXX-XXXX-XX" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-navy mb-2">Account Holder Name</label>
+                                            <input type="text" id="bdoName" placeholder="Full name as registered" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Landbank Details -->
+                            <div id="landbankDetails" class="payment-details hidden">
+                                <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                                    <h4 class="font-medium text-navy mb-3">Landbank Account Details</h4>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-navy mb-2">Account Number</label>
+                                            <input type="text" id="landbankAccount" placeholder="XXXX-XXXX-XX" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-navy mb-2">Account Holder Name</label>
+                                            <input type="text" id="landbankName" placeholder="Full name as registered" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- PayPal Details -->
+                            <div id="paypalDetails" class="payment-details hidden">
+                                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                                    <h4 class="font-medium text-navy mb-3">PayPal Account Details</h4>
+                                    <div>
+                                        <label class="block text-sm font-medium text-navy mb-2">PayPal Email Address</label>
+                                        <input type="email" id="paypalEmail" placeholder="your-email@example.com" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card Details -->
+                            <div id="cardDetails" class="payment-details hidden">
+                                <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                                    <h4 class="font-medium text-navy mb-3">Credit/Debit Card Details</h4>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div class="md:col-span-2">
+                                            <label class="block text-sm font-medium text-navy mb-2">Card Number</label>
+                                            <input type="text" id="cardNumber" placeholder="XXXX-XXXX-XXXX-XXXX" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-navy mb-2">Expiry Date</label>
+                                            <input type="text" id="cardExpiry" placeholder="MM/YY" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-navy mb-2">CVV</label>
+                                            <input type="text" id="cardCvv" placeholder="XXX" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent">
+                                        </div>
+                                        <div class="md:col-span-2">
+                                            <label class="block text-sm font-medium text-navy mb-2">Cardholder Name</label>
+                                            <input type="text" id="cardName" placeholder="Full name as on card" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Bank Transfer Details -->
+                            <div id="bankTransferDetails" class="payment-details hidden">
+                                <div class="bg-purple-50 border border-purple-200 rounded-lg p-4">
+                                    <h4 class="font-medium text-navy mb-3">Bank Transfer Details</h4>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-navy mb-2">Bank Name</label>
+                                            <input type="text" id="bankName" placeholder="Your bank name" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-navy mb-2">Account Number</label>
+                                            <input type="text" id="bankAccount" placeholder="XXXX-XXXX-XX" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent">
+                                        </div>
+                                        <div class="md:col-span-2">
+                                            <label class="block text-sm font-medium text-navy mb-2">Account Holder Name</label>
+                                            <input type="text" id="bankHolderName" placeholder="Full name as registered" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 7-Eleven Details -->
+                            <div id="7elevenDetails" class="payment-details hidden">
+                                <div class="bg-orange-50 border border-orange-200 rounded-lg p-4">
+                                    <h4 class="font-medium text-navy mb-3">7-Eleven Payment Details</h4>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-navy mb-2">Reference Number</label>
+                                            <input type="text" id="sevenElevenRef" placeholder="Will be provided after confirmation" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent" readonly>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-navy mb-2">Your Mobile Number</label>
+                                            <input type="tel" id="sevenElevenMobile" placeholder="09XX-XXX-XXXX" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent">
+                                        </div>
+                                    </div>
+                                    <p class="text-sm text-gray-600 mt-2">💡 You can pay at any 7-Eleven store using the reference number provided after confirmation.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Anonymous Option -->
+                    <div class="mb-8">
+                        <label class="flex items-center">
+                            <input type="checkbox" id="anonymous" class="mr-2 text-navy focus:ring-navy">
+                            <span class="text-sm text-gray-600">Make this donation anonymous</span>
+                        </label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="w-full bg-navy hover:bg-navy-dark text-white font-bold py-4 px-6 rounded-lg text-lg transition-colors shadow-lg">
+                        Complete Donation
+                    </button>
+
+                    <!-- Demo Notice -->
+                    <div class="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                        <p class="text-sm text-navy font-medium">🎭 Demo Notice: This is a sample donation form for demonstration purposes. No actual payment will be processed.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <!-- Replace this section with your logo -->
+                        <div class="mr-3">
+                            <!-- Your Hapag Bayan Logo -->
+                            <img src="https://i.imgur.com/gAuMRvb.png" alt="Hapag Bayan! Logo" class="h-16 w-auto rounded-full" style="background: transparent;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            
+                            <!-- Fallback SVG Logo -->
+                            <div class="bg-white rounded p-1" style="display: none;">
+                                <svg class="w-8 h-6" viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Plate/Bowl shape -->
+                                    <ellipse cx="60" cy="45" rx="45" ry="15" fill="#fbbf24" stroke="#1e3a8a" stroke-width="2"/>
+                                    <!-- Food items on plate -->
+                                    <circle cx="45" cy="40" r="6" fill="#dc2626"/>
+                                    <circle cx="60" cy="38" r="7" fill="#16a34a"/>
+                                    <circle cx="75" cy="42" r="5" fill="#ea580c"/>
+                                    <!-- Steam lines -->
+                                    <path d="M40 25 Q42 20 40 15" stroke="#9ca3af" stroke-width="2" fill="none"/>
+                                    <path d="M60 23 Q62 18 60 13" stroke="#9ca3af" stroke-width="2" fill="none"/>
+                                    <path d="M80 27 Q82 22 80 17" stroke="#9ca3af" stroke-width="2" fill="none"/>
+                                    <!-- Text -->
+                                    <text x="60" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e3a8a">HAPAG</text>
+                                </svg>
+                            </div>
+                        </div>
+                        <h4 class="text-xl font-bold">Hapag Bayan!</h4>
+                    </div>
+                    <p class="text-gray-300">Creating positive change through compassionate giving and community support.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-4">Quick Links</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-300 hover:text-yellow transition-colors">Home</a></li>
+                        <li><a href="#donate" class="text-gray-300 hover:text-yellow transition-colors">Donate</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-yellow transition-colors">About Us</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-yellow transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-4">Support</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-yellow transition-colors">FAQ</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-yellow transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-yellow transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-yellow transition-colors">Tax Information</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-4">Contact Info</h5>
+                    <div class="space-y-2 text-gray-300">
+                        <p>📧 info@hapagbayan.org</p>
+                        <p>📞 (555) 123-4567</p>
+                        <p>📍 Banay-banay 2<br>Lipa City, Batangas</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-600 mt-8 pt-8 text-center">
+                <p class="text-gray-300">&copy; 2024 Hapag Bayan! All rights reserved. Making a difference, one donation at a time.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let selectedAmount = 0;
+        let selectedCause = '';
+
+        function scrollToDonate() {
+            document.getElementById('donate').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function selectCause(cause) {
+            selectedCause = cause;
+            document.getElementById('causeSelect').value = cause;
+            scrollToDonate();
+        }
+
+        function setAmount(amount) {
+            selectedAmount = amount;
+            document.getElementById('customAmount').value = amount;
+            
+            // Update button styles
+            document.querySelectorAll('.amount-btn').forEach(btn => {
+                btn.classList.remove('bg-yellow', 'text-navy');
+                btn.classList.add('bg-gray-100');
+            });
+            
+            event.target.classList.remove('bg-gray-100');
+            event.target.classList.add('bg-yellow', 'text-navy');
+        }
+
+        function processDonation(event) {
+            event.preventDefault();
+            
+            const paymentMethodElement = document.querySelector('input[name="paymentMethod"]:checked');
+            
+            const formData = {
+                cause: document.getElementById('causeSelect').value,
+                amount: document.getElementById('customAmount').value,
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                donationType: document.querySelector('input[name="donationType"]:checked').value,
+                paymentMethod: paymentMethodElement ? paymentMethodElement.value : null,
+                anonymous: document.getElementById('anonymous').checked
+            };
+
+            if (!formData.cause) {
+                alert('Please select a cause for your donation.');
+                return;
+            }
+
+            if (!formData.amount || formData.amount <= 0) {
+                alert('Please enter a valid donation amount.');
+                return;
+            }
+
+            if (!formData.paymentMethod) {
+                alert('Please select a payment method.');
+                return;
+            }
+
+            // Show success message
+            showSuccessMessage(formData);
+        }
+
+        function showSuccessMessage(data) {
+            const successHTML = `
+                <div class="text-center">
+                    <div class="bg-green-100 border border-green-400 text-green-700 px-6 py-8 rounded-lg mb-6">
+                        <div class="text-6xl mb-4">🎉</div>
+                        <h3 class="text-2xl font-bold mb-2">Thank You for Your Generosity!</h3>
+                        <p class="text-lg">Your ${data.donationType} donation of ₱${data.amount} to ${getCauseName(data.cause)} via ${getPaymentMethodName(data.paymentMethod)} will make a real difference.</p>
+                        ${data.anonymous ? '<p class="mt-2 text-sm">Your donation will be processed anonymously as requested.</p>' : ''}
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h4 class="font-bold text-navy mb-4">What happens next?</h4>
+                        <ul class="text-left space-y-2 text-gray-600">
+                            <li>✅ You'll receive a confirmation email at ${data.email}</li>
+                            <li>✅ Your tax-deductible receipt will be sent within 24 hours</li>
+                            <li>✅ You'll get updates on how your donation is being used</li>
+                            <li>✅ Your contribution will be put to work immediately</li>
+                        </ul>
+                    </div>
+                    <button onclick="resetForm()" class="mt-6 bg-navy hover:bg-navy-dark text-white font-bold py-3 px-6 rounded-lg transition-colors">
+                        Make Another Donation
+                    </button>
+                </div>
+            `;
+
+            document.querySelector('#donate .bg-white').innerHTML = successHTML;
+        }
+
+        function getCauseName(cause) {
+            const causes = {
+                'general': 'General Relief Goods',
+                'food-packs': 'Food Packs & Groceries',
+                'emergency-kits': 'Emergency Relief Kits',
+                'medical-supplies': 'Medical Supplies & First Aid',
+                'clothing-blankets': 'Clothing & Blankets',
+                'hygiene-kits': 'Hygiene & Sanitation Kits',
+                'school-supplies': 'School Supplies for Children',
+                'baby-supplies': 'Baby Care Packages',
+                'elderly-care-packs': 'Elderly Care Packages',
+                'disaster-response': 'Disaster Response Relief'
+            };
+            return causes[cause] || 'Relief Goods';
+        }
+
+        function getPaymentMethodName(method) {
+            const methods = {
+                'gcash': 'GCash',
+                'paymaya': 'PayMaya',
+                'bpi': 'BPI Online Banking',
+                'bdo': 'BDO Online Banking',
+                'landbank': 'Landbank',
+                'paypal': 'PayPal',
+                'card': 'Credit/Debit Card',
+                'bank-transfer': 'Bank Transfer',
+                '7eleven': '7-Eleven'
+            };
+            return methods[method] || 'Selected Payment Method';
+        }
+
+        function resetForm() {
+            location.reload();
+        }
+
+        // Handle custom amount input
+        document.getElementById('customAmount').addEventListener('input', function() {
+            document.querySelectorAll('.amount-btn').forEach(btn => {
+                btn.classList.remove('bg-yellow', 'text-navy');
+                btn.classList.add('bg-gray-100');
+            });
+        });
+
+        // Handle payment method selection
+        document.querySelectorAll('input[name="paymentMethod"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                // Remove selected styling from all payment methods
+                document.querySelectorAll('.payment-method').forEach(method => {
+                    method.classList.remove('border-navy', 'bg-blue-50');
+                    method.classList.add('border-gray-200');
+                });
+                
+                // Add selected styling to chosen payment method
+                if (this.checked) {
+                    this.closest('.payment-method').classList.remove('border-gray-200');
+                    this.closest('.payment-method').classList.add('border-navy', 'bg-blue-50');
+                }
+
+                // Show/hide payment details forms
+                showPaymentDetails(this.value);
+            });
+        });
+
+        function showPaymentDetails(paymentMethod) {
+            // Hide all payment detail forms
+            document.querySelectorAll('.payment-details').forEach(detail => {
+                detail.classList.add('hidden');
+            });
+
+            // Show the payment details container
+            document.getElementById('paymentDetails').classList.remove('hidden');
+
+            // Show the specific payment method form
+            const detailsMap = {
+                'gcash': 'gcashDetails',
+                'paymaya': 'paymayaDetails',
+                'bpi': 'bpiDetails',
+                'bdo': 'bdoDetails',
+                'landbank': 'landbankDetails',
+                'paypal': 'paypalDetails',
+                'card': 'cardDetails',
+                'bank-transfer': 'bankTransferDetails',
+                '7eleven': '7elevenDetails'
+            };
+
+            const detailsId = detailsMap[paymentMethod];
+            if (detailsId) {
+                document.getElementById(detailsId).classList.remove('hidden');
+                
+                // Generate reference number for 7-Eleven
+                if (paymentMethod === '7eleven') {
+                    const refNumber = 'REF' + Math.random().toString(36).substr(2, 9).toUpperCase();
+                    document.getElementById('sevenElevenRef').value = refNumber;
+                }
+            }
+        }
+
+
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96a7735174edb487',t:'MTc1NDQwOTAyOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
